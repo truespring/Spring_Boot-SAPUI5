@@ -1,0 +1,84 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+    controllerName="OpenUI5.controller.contents.Contents6">
+	<Text text="공정관리계획" class="page-title title-font-style"/>
+	<Panel accessibleRole="Region">
+		<headerToolbar>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<SearchField
+					width="30%"
+					search=".onFilterInvoices"
+					ariaLabelledBy="searchFieldLabel"
+					ariaDescribedBy="searchFieldDescription"
+					placeholder="검색"/>
+			</Toolbar>
+		</headerToolbar>
+		<Table
+			id="invoiceList"
+			class="sapUiResponsiveMargin"
+			width="auto"
+			items="{
+				path : 'invoice>/Process_product'
+			}">
+			<columns>
+				<Column
+					width="4em">
+					<Text text="{i18n>columnNumber}"/>
+				</Column>
+				<Column
+					width="12em">
+					<Text text="{i18n>columnOrder}"/>
+				</Column>
+				<Column>
+					<Text text="{i18n>columnSupplier}"/>
+				</Column>
+				<Column
+					width="9em">
+					<Text text="{i18n>columnName}"/>
+				</Column>
+				<Column>
+					<Text text="{i18n>columnSize}"/>
+				</Column>
+				<Column>
+					<Text text="{i18n>columnQuantity}"/>
+				</Column>
+				<Column
+					width="7em">
+					<Text text="{i18n>columnDeadline}"/>
+				</Column>
+				<Column>
+					<Text text="{i18n>columnResource}"/>
+				</Column>
+				<Column>
+					<Text text="{i18n>columnAmount}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem
+					type="Navigation"
+					press=".onPress">
+					<cells>
+						<ObjectNumber
+							number="{
+								parts: [{path: 'invoice>Number'}],
+								formatOptions: {
+									showMeasure: true
+								}
+							}"/>
+						<Text text="{invoice>OrderNo}"/>
+						<Text text="{invoice>Supplier}"/>
+						<Text text="{invoice>Name}"/>
+						<Text text="{invoice>Size}"/>
+						<ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
+						<Text text="{invoice>Deadline}"/>
+						<ObjectNumber number="{invoice>Resource}" emphasized="false"/>
+						<ObjectNumber number="{invoice>Amount}" emphasized="false"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</Panel>
+</mvc:View>

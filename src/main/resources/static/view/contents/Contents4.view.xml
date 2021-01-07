@@ -1,0 +1,28 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	height="100%"
+    controllerName="OpenUI5.controller.contents.Contents4">
+	<Panel
+		headerText="근태관리"
+		class=""
+		width="auto"
+		expandable="{device>/system/phone}"
+		expanded="{= !${device>/system/phone} }"
+		accessibleRole="Region">
+		<Text text="근태 관리 리스트"/>
+		<Text text="검색일 기준으로 작업시간을 리스트상에 나타냅니다. 주간/일간/월간에 대해서 알고자 하실때는 검색일을 조정해보세요."/>
+		<content>
+    		<mvc:XMLView id="calendarView" viewName="OpenUI5.view.contents4.Calendar"/>
+		</content>
+	</Panel>
+	<Panel>
+		<content>
+    		<mvc:XMLView id="boardView" viewName="OpenUI5.view.contents4.Board"/>
+		</content>
+	</Panel>
+</mvc:View>

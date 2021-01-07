@@ -1,0 +1,21 @@
+{
+    "Resource": [
+        {
+            "Name": "선택"
+        },
+        {
+            "Name": "BMS"
+        },
+        {
+            "Name": "LED"
+        }
+    ],
+    "Outsourcing": [
+        {
+            "Name": "자체제작"
+        },
+        {
+            "Name": "외주제작"
+        }
+    ]
+}

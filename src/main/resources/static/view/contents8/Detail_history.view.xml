@@ -1,0 +1,77 @@
+<mvc:View
+    controllerName="OpenUI5.controller.contents8.Detail_history"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Text text="설비이력 관리" class="title-font-style page-title"/>
+    <Panel accessibleRole="Region">
+        <VBox>
+            <HBox>
+                <Text text="{i18n>mechineName}" class="left-margin"/>
+                <l:VerticalLayout
+                    class="left-margin"
+                    width="100%">
+                    <ActionSelect
+                        id="select"
+                        items="{
+                            path: '/MechineName',
+                            sorter: { path: 'Name' }
+                        }">
+                        <items>
+                            <core:Item key="{Name}" text="{Name}" />
+                        </items>
+                    </ActionSelect>
+                </l:VerticalLayout>
+            </HBox>
+            <HBox>
+                <Text text="{i18n>checkDay}" class="left-margin"/>
+                <DateRangeSelection
+                    class="left-margin"
+                    id="calendar"
+                    displayFormat="yyyy/MM/dd"
+                    change="handleChange"/>
+                <Label labelFor="calendar"/>
+            </HBox>
+            <HBox>
+                <Text text="{i18n>maintenanceProvision}" class="left-margin"/>
+                <l:VerticalLayout
+                    class="left-margin"
+                    width="100%">
+                    <ActionSelect
+                        id="checkList"
+                        class="left-margin"
+                        items="{
+                            path: '/CheckList',
+                            sorter: { path: 'Name' }
+                        }">
+                        <items>
+                            <core:Item key="{Name}" text="{Name}" />
+                        </items>
+                    </ActionSelect>
+                </l:VerticalLayout>
+            </HBox>
+            <HBox>
+                <Text text="{i18n>symptom}" class="left-margin"/>
+                <Input type="Text" placeholder="증상 (100자 미만 입력)" class="left-margin"/>
+            </HBox>
+            <HBox>
+                <Text text="{i18n>cause}" class="left-margin"/>
+                <Input type="Text" placeholder="원인 (100자 미만 입력)" class="left-margin"/>
+            </HBox>
+            <HBox>
+                <Text text="{i18n>result}" class="left-margin"/>
+                <Input type="Text" placeholder="처리결과" class="left-margin"/>
+            </HBox>
+        </VBox>
+        <Button
+            text="저장"
+            class="left-margin"
+            press=".onNavSave"/>
+        <Button
+            text="목록"
+            class="left-margin"
+            press=".onNavBack"/>
+    </Panel>
+</mvc:View>

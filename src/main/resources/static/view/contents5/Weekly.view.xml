@@ -1,0 +1,66 @@
+<mvc:View
+    controllerName="OpenUI5.controller.contents5.Weekly"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Text text=" "/>
+    <Panel accessibleRole="Region">
+        <Table
+            id="weekly"
+            class=""
+            width="auto">
+            <columns>
+                <Column
+                    minScreenWidth="Small"
+                    demandPopin="true"
+                    width="6em">
+                    <Text text="{i18n>lineItem}"/>
+                </Column>
+                <Column
+                    minScreenWidth="Small"
+                    demandPopin="true"
+                    width="5em">
+                    <Text text="{i18n>standard}"/>
+                </Column>
+                <Column
+                    minScreenWidth="Small"
+                    demandPopin="true"
+                    width="3em">
+                    <Text text="{i18n>one}{i18n>week}"/>
+                </Column>
+                <Column
+                    minScreenWidth="Small"
+                    demandPopin="true"
+                    width="3em">
+                    <Text text="{i18n>two}{i18n>week}"/>
+                </Column>
+                <Column
+                    minScreenWidth="Small"
+                    demandPopin="true"
+                    width="3em">
+                    <Text text="{i18n>three}{i18n>week}"/>
+                </Column>
+                <Column
+                    minScreenWidth="Small"
+                    demandPopin="true"
+                    width="3em">
+                    <Text text="{i18n>four}{i18n>week}"/>
+                </Column>
+                <Column
+                    minScreenWidth="Small"
+                    demandPopin="true"
+                    width="3em">
+                    <Text text="{i18n>five}{i18n>week}"/>
+                </Column>
+                <Column
+                    minScreenWidth="Small"
+                    demandPopin="true"
+                    width="5em">
+                    <Text text="{i18n>total}"/>
+                </Column>
+            </columns>
+        </Table>
+    </Panel>
+</mvc:View>

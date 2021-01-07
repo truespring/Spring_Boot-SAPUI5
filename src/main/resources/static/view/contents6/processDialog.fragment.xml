@@ -1,0 +1,124 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="processDialog"
+        title="공정 설정/추가">
+        <Table>
+            <columns>
+                <Column>
+                    <Text text="공정 선택"/>
+                </Column>
+                <Column>
+                    <Text text="세부 공정(장비) 선택"/>
+                </Column>
+                <Column>
+                    <Text text="최종 공정 확인"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Table
+                            id="process_select"
+                            class=""
+                            items="{
+                                path : 'invoice>/Process_sel'
+                            }">
+                            <columns>
+                                <Column>
+                                    <Text text="{i18n>columnNumber}"/>
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>processName}"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                    <ObjectNumber
+                                            number="{
+                                                parts: [{path: 'invoice>Number'}],
+                                                formatOptions: {
+                                                    showMeasure: true
+                                                }
+                                            }"/>
+                                        <Text text="{invoice>Name}"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                        <Table
+                            id="detail_process_select"
+                            class=""
+                            items="{
+                                path : 'invoice>/Detail_process_sel'
+                            }">
+                            <columns>
+                                <Column>
+                                    <Text text="세부공정 장비명"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="공정을 먼저 선택해주세요"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                        <Table
+                            id="final_process_check"
+                            class=""
+                            items="{
+                                path : 'invoice>/Final_process_check'
+                            }">
+                            <columns>
+                                <Column>
+                                    <Text text="순서"/>
+                                </Column>
+                                <Column>
+                                    <Text text="최종 공정명"/>
+                                </Column>
+                                <Column>
+                                    <Text text="비고"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <ObjectNumber
+                                                number="{
+                                                    parts: [{path: 'invoice>Number'}],
+                                                    formatOptions: {
+                                                        showMeasure: true
+                                                    }
+                                                }"/>
+                                        <Text text="{invoice>Name}"/>
+                                        <HBox>
+                                            <Switch state="true" customTextOn="진행" customTextOff="취소">
+                                                <layoutData>
+                                                    <FlexItemData growFactor="1" />
+                                                </layoutData>
+                                            </Switch>
+                                        </HBox>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <beginButton>
+            <Button
+                text="등록"
+                press=".onSaveDialog"/>
+        </beginButton>
+        <endButton>
+            <Button
+                text="닫기"
+                press=".onCloseDialog"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

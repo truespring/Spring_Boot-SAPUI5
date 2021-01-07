@@ -1,21 +1,74 @@
-html[dir="ltr"] .myAppDemoWT .myCustomButton.sapMBtn {
- 	margin-right: 0.125rem
-}
+/* ELEMENT CLASS for CHECK 																	*/
+.BORDER_RED    { border-style: dashed; color: red   ; }
+.BORDER_BLUE   { border-style: dashed; color: blue  ; }
+.BORDER_GREEN  { border-style: dashed; color: green ; }
+.BORDER_YELLOW { border-style: dashed; color: yellow; }
+/* ELEMENT CLASS for CHECK END																*/
 
-html[dir="rtl"] .myAppDemoWT .myCustomButton.sapMBtn {
- 	margin-left: 0.125rem
-}
 
-.myAppDemoWT .myCustomText {
-	display: inline-block;
-	font-weight: bold;
-}
+/* BASE STYLES SETTING																		*/
+body 		   { background:#FAFAFA		; margin: 0; padding: 0; overflow: hidden;  }
+.sapMFocus 	   { outline: 	none		; 											}
+.sapUiBody 	   { margin: 	0 !important; 											}
+.sapMNav 	   { overflow: 	auto		; 											}
+.sapMText 	   { color: 	#263238DE	; font-family: 'IBM Plex Sans', sans-serif; }
 
-/*  ProductRating */
-.myAppDemoWTProductRating {
-	padding: 0.75rem;
-}
+div, button    { transition:ALL 0.5s;			 }
+button		   { cursor: pointer; outline: none; }
+button span	   { cursor: pointer; outline: none; }
+img 		   { opacity: 0.9; -webkit-user-select: none; }
+bdi 		   { text-shadow: none !important;			  }
 
-.myAppDemoWTProductRating .sapMRI {
-	vertical-align: initial;
+.noselect 	   {
+				 -webkit-touch-callout: none;
+				 -webkit-user-select: none;
+				 -khtml-user-select: none;
+				 -moz-user-select: none;
+				 -ms-user-select: none;
+				 user-select: none
+				}
+.sapMFocusable 	{ outline: 		none !important; 				  	}
+rect,svg,div,g	{ outline: 		none !important;					}		
+.sapViewInner 	{ display: block; position:relative; padding: 64px; overflow-x: hidden; }
+.sapViewInner>div{ display: block; 									}
+::selection 	{ background: 	#1DE9B6 !important;														}
+button:hover 	{ transform: 	translateY(2px); 														}
+input:focus 	{ outline: 		none !important; border: none !important; outline-offset: 0!important; 	}
+:focus 			{ outline: 		none !important; font-weight: 700; 										}
+::before		{ outline: 		none !important;					 									}
+.customSettingsBox 	{margin-left: 1rem;}
+			
+/* BASE STYLES SETTING END																	*/
+
+/* FONT */
+@font-face {font-family: 'GmarketSansMedium';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');font-weight: normal;font-style: normal;}
+/* FONT END */
+
+/* SIDE NAVI */
+.side-navigation-demo {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+
+	-webkit-box-direction: normal;
+	-webkit-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+
+	max-width: 15rem;
 }
+/* SIDE NAVI END */
+
+/* STYLE SETTING */
+.main-back {		background-color:#263238DE;	}
+.title-font-style {	font-weight: bold;	font-size: 1.3rem;	font-family: 'GmarketSansMedium', serif;}
+.main-title {		margin-top: 8px;	margin-left: 40px;	color: white;}
+.page-title	{		margin-top: 10px;	margin-left: 20px;}
+.HBox-rows {		height: 50px;		position: relative; align-items: center; margin-left: 30px;}
+.rows-width {		width: 60px}
+.Fragment-padding {	padding: 20px;}
+.left-margin {		padding-left: 20px;}
+.bottom-margin {	padding-bottom: 20px;}
+.top-padding {		padding-top: 20px;}

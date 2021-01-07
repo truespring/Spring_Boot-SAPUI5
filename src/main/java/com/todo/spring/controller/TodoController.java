@@ -10,14 +10,4 @@ public class TodoController {
 	public String index() {
 		return "index";
 	}
-	
-	@RequestMapping("/test")
-	public String mockServer() {
-		return "test/mockServer";
-	}
-	
-	@RequestMapping("/test/unit")
-	public String unitTests() {
-		return "test/unit/unitTests.qunit";
-	}
 }

@@ -1,0 +1,91 @@
+<mvc:View
+    controllerName="OpenUI5.controller.contents6.Detail_process"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Page>
+        <Text text="공정관리계획" class="title-font-style page-title"/>
+        <Button
+            text="공정관리"
+            press=".onOpenProcessManagement"
+            id="processManagementButton"/>
+        <Panel accessibleRole="Region">
+            <Table
+                id="detail_process"
+                class=""
+                width="auto"
+                items="{
+                    path : 'invoice>/Process_plan'
+                }">
+                <columns
+                    class="HBox-rows">
+                    <Column>
+                        <Text text="{i18n>columnNumber}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>processName}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>columnQuantity}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>outsorucing}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>startday}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>endday}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>leadday}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>worker}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <ObjectNumber
+                                number="{
+                                    parts: [{path: 'invoice>Number'}],
+                                    formatOptions: {
+                                        showMeasure: true
+                                    }
+                                }"/>
+                            <Text text="{invoice>Name}"/>
+                            <ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
+                            <l:VerticalLayout
+                                class=""
+                                width="100%">
+                                <ActionSelect
+                                    id="select"
+                                    items="{
+                                        path: '/Outsourcing',
+                                        sorter: { path: 'Name' }
+                                    }">
+                                    <items>
+                                        <core:Item key="{Name}" text="{Name}" />
+                                    </items>
+                                </ActionSelect>
+                            </l:VerticalLayout>
+                            <Input type="Date"/>
+                            <Input type="Date"/>
+                            <ObjectNumber number="{invoice>lead}" emphasized="false"/>
+                            <ObjectNumber number="{invoice>worker}" emphasized="false"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <Button
+                text="도면등록"/>
+            <Button
+                id="processDialogButton"
+                text="공정 설정/추가"
+                press=".onOpenProcessDialog"/>
+        </Panel>
+    </Page>
+</mvc:View>

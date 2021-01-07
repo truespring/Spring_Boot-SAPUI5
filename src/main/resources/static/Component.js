@@ -1,63 +1,82 @@
 sap.ui.define([
-	"sap/ui/core/UIComponent",
-	"sap/ui/model/json/JSONModel",
-	"./controller/HelloDialog",
-	"sap/ui/Device"
-], function (UIComponent, JSONModel, HelloDialog, Device) {
-	"use strict";
+    "sap/ui/core/UIComponent",
+    "sap/ui/model/json/JSONModel",
+    "./controller/contents6/ProcessDialog",
+    "./controller/contents6/ManagementDialog",
+    "./controller/contents7/PerformanceDialog",
+    "./controller/contents8/HistoryDialog",
+    "./controller/contents8/InspectionManagementDialog"
+], function (UIComponent, JSONModel, ProcessDialog, ManagementDialog, PerformanceDialog, HistoryDialog, InspectionManagementDialog) {
+    "use strict";
 
-	return UIComponent.extend("sap.ui.demo.walkthrough.Component", {
+    return UIComponent.extend("OpenUI5.Component", {
 
-		metadata: {
-			manifest: "json"
-		},
-
-		init: function () {
-			// call the init function of the parent
-			UIComponent.prototype.init.apply(this, arguments);
-
-			// set data model
+        metadata: {
+            manifest: "json"
+        },
+        
+        init: function () {
+        	console.log("Component.js init()");
+            // set data model
 			var oData = {
-				recipient: {
-					name: "World"
-				}
-			};
-			var oModel = new JSONModel(oData);
-			this.setModel(oModel);
+                recipient : {
+                    name : "World"
+                }
+            };
+            var oModel = new JSONModel(oData);
+            this.setModel(oModel);
+            
+            // call the init function of the parent
+            UIComponent.prototype.init.apply(this, arguments);
 
-			// set device model
-			var oDeviceModel = new JSONModel(Device);
-			oDeviceModel.setDefaultBindingMode("OneWay");
-			this.setModel(oDeviceModel, "device");
-
-			// set dialog
-			this._helloDialog = new HelloDialog(this.getRootControl());
-
-			// create the views based on the url/hash
-			this.getRouter().initialize();
-
+            // create the views based on the url/hash
+            var oRouter = this.getRouter();
+            oRouter.initialize();
+            
+            // set dialog
+            this._processDialog = new ProcessDialog(this.getRootControl());
+            this._managementDialog = new ManagementDialog(this.getRootControl());
+            this._performaneceDialog = new PerformanceDialog(this.getRootControl());
+            this._historyDialog = new HistoryDialog(this.getRootControl());
+            this._inspectionManagementDialog = new InspectionManagementDialog(this.getRootControl());
 		},
 
-		exit : function () {
-			this._helloDialog.destroy();
-			delete this._helloDialog;
+
+		exit : function() {
+            this._processDialog.destroy();
+            delete this._processDialog;
+
+            this._managementDialog.destroy();
+            delete this._managementDialog;
+
+            this._performaneceDialog.destroy();
+            delete this._performaneceDialog;
+
+            this._historyDialog.destroy();
+            delete this._historyDialog;
+
+            this._inspectionManagementDialog.destroy();
+            delete this._inspectionManagementDialog;
 		},
 
-		openHelloDialog : function () {
-			this._helloDialog.open();
-		},
+		openProcessDialog : function () {
+			this._processDialog.openProcess();
+        },
+        
+        openManagementDialog : function () {
+            this._managementDialog.openManagement();
+        },
 
-		getContentDensityClass : function () {
-			if (!this._sContentDensityClass) {
-				if (!Device.support.touch) {
-					this._sContentDensityClass = "sapUiSizeCompact";
-				} else {
-					this._sContentDensityClass = "sapUiSizeCozy";
-				}
-			}
-			return this._sContentDensityClass;
-		}
+        openPerformanceDialog : function () {
+            this._performaneceDialog.openPerformance();
+        },
 
-	});
+        openHistoryDialog : function () {
+            this._historyDialog.openHistory();
+        },
 
+        openInspectionManagementDialog : function () {
+            this._inspectionManagementDialog.openManagement();
+        }
+    });
 });

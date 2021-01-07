@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="managementDialog"
+        title="공정 관리">
+        <Text text="공정 관리"/>
+        <Input
+            type="Text"
+            placeholder="추가 공정명(20자내 작성)"
+            />
+        <beginButton>
+            <Button
+                text="수정"
+                press=".onSaveManagementDialog"/>
+        </beginButton>
+        <endButton>
+            <Button
+                text="닫기"
+                press=".onCloseManagementDialog"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

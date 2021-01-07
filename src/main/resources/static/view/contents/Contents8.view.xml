@@ -1,0 +1,21 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+    controllerName="OpenUI5.controller.contents.Contents8">
+
+	<Text text="생산관리계획" class="page-title title-font-style"/>
+		<IconTabBar
+		id="idIconTabBarNoIcons"
+		expanded="{device>/isNoPhone}"
+		class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter text="설비 이력" key="info">
+    			<mvc:XMLView id="historyView" viewName="OpenUI5.view.contents8.History"/>
+			</IconTabFilter>
+			<IconTabFilter text="설비별 정기 점검현황" key="attachments">
+    			<mvc:XMLView id="inspectionView" viewName="OpenUI5.view.contents8.Inspection"/>
+			</IconTabFilter>
+		</items>
+	</IconTabBar>
+</mvc:View>

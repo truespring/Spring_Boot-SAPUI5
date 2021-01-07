@@ -1,0 +1,91 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+	controllerName="OpenUI5.controller.contents8.History">
+	<Text text="검색 기준일"/>
+	<Panel accessibleRole="Region">
+		<DateRangeSelection
+            id="calendar"
+            displayFormat="yyyy/MM/dd"
+            change="handleChange"/>
+        <Label labelFor="calendar"/>
+		<Table
+			id="invoiceList"
+			class="sapUiResponsiveMargin"
+			width="auto"
+			items="{
+				path : 'invoice>/Mechine_Maintenance'
+			}">
+			<columns>
+				<Column
+					minScreenWidth="Small"
+					demandPopin="true"
+					width="4em">
+					<Text text="{i18n>columnNumber}"/>
+				</Column>
+				<Column
+					minScreenWidth="Small"
+					width="12em"
+					demandPopin="true">
+					<Text text="{i18n>maintenanceDay}"/>
+				</Column>
+				<Column
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>mechineDivide}"/>
+				</Column>
+				<Column
+					minScreenWidth="Small"
+					demandPopin="false"
+					width="6em">
+					<Text text="{i18n>columnMechine}"/>
+				</Column>
+				<Column
+					minScreenWidth="Small"
+					demandPopin="false">
+					<Text text="{i18n>maintenanceProvision}"/>
+				</Column>
+				<Column
+					minScreenWidth="Small"
+					demandPopin="false">
+					<Text text="{i18n>maintenanceDay}"/>
+				</Column>
+				<Column
+					minScreenWidth="Small"
+					width="8em">
+					<Text text="{i18n>maintenanceWorker}"/>
+				</Column>
+            </columns>
+			<items>
+				<ColumnListItem
+					type="Navigation"
+					press=".onPress">
+					<cells>
+						<ObjectNumber
+							number="{
+								parts: [{path: 'invoice>Number'}],
+								formatOptions: {
+									showMeasure: true
+								}
+							}"/>
+						<Text text="{invoice>Day}"/>
+						<Text text="{invoice>MechineDivide}"/>
+						<Text text="{invoice>MechineName}"/>
+						<Text text="{invoice>Provision}"/>
+						<Text text="{invoice>Day}"/>
+						<Text text="{invoice>Worker}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+        <Button
+            text="설비 관리"
+            press=".onOpenHistoryDialog"/>
+        <Button
+            text="정기 점검 관리"
+            press=".onOpenManagementDialog"/>
+        <Button
+            text="설비 이력 작성"
+            press=""/>
+	</Panel>
+</mvc:View>

@@ -1,0 +1,50 @@
+<mvc:View
+    controllerName="OpenUI5.controller.contents4.Board"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <List
+        id="invoiceList"
+        headerText="{i18n>invoiceListTitle}"
+        class="sapUiResposiveMargin"
+        width="auto"
+        items="{invoice>/Invoices}">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="{i18n>invoiceListTitle}"/>
+                <ToolbarSpacer/>
+                <SearchField width="50%" search=".onFilterInvoices"/>
+            </Toolbar>
+        </headerToolbar>
+        <items>
+            <ObjectListItem
+                title="{invoice>Quantity} x {invoice>ProductName}"
+                number="{
+                    parts: [{path: 'invoice>ExtendedPrice'}, {path:'view>/currency'}],
+                    type: 'sap.ui.model.type.Currency',
+                    formatOptions: {
+                        showMeasure: false
+                    }
+                }"
+                numberUnit="{view>/currency}"
+                numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }">
+                <firstStatus>
+                    <ObjectStatus text="{
+                        path: 'invoice>Status',
+                        formatter: '.formatter.statusText'
+                    }"/>
+                </firstStatus>
+            </ObjectListItem>
+        </items>
+    </List>
+    <!-- <List
+        id="board"
+        headerText="게시판"
+        class=""
+        width="auto"
+        items="{board>/Board}">
+        <items>
+            <ObjectListItem
+                title="1번 글"/>
+        </items>
+    </List> -->
+</mvc:View>

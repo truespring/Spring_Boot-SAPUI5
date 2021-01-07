@@ -1,0 +1,55 @@
+<mvc:View
+	controllerName="OpenUI5.controller.contents10.ChartContainer"
+	xmlns="sap.suite.ui.commons"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:layout="sap.ui.layout"
+	xmlns:m="sap.m">
+	<layout:Splitter width="100%" height="100%">
+		<layout:contentAreas>
+			<ChartContainer
+				id="chartContainer"
+				showFullScreen="true"
+				showPersonalization="false"
+				autoAdjustHeight="false"
+				personalizationPress="attachPersonalizationPress"
+				contentChange="attachContentChange"
+				title="차트와 표">
+				<content>
+					<ChartContainerContent
+						icon="sap-icon://line-chart"
+						title="Line Chart">
+						<content>
+							<viz:VizFrame id="chartContainerVizFrame" height="700px" width="100%"
+							              uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
+						</content>
+					</ChartContainerContent>
+				</content>
+			</ChartContainer>
+		</layout:contentAreas>
+	</layout:Splitter>
+	<m:Table
+		id=""
+		class=""
+		width="auto"
+		items="{
+			path : 'chartList>/Products'
+		}">
+		<m:columns>
+			<m:Column>
+				<m:Text text="Country"/>
+			</m:Column>
+			<m:Column>
+				<m:Text text="Revenue"/>
+			</m:Column>
+		</m:columns>
+		<m:items>
+			<m:ColumnListItem>
+				<m:cells>
+					<m:Text text="{chartList>Country}"/>
+					<m:Text text="{chartList>Revenue}"/>
+				</m:cells>
+			</m:ColumnListItem>
+		</m:items>
+	</m:Table>
+</mvc:View>

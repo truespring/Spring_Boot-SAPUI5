@@ -1,0 +1,68 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="performanceDialog"
+        title="실적등록">
+        <content>
+            <VBox
+                class="Fragment-padding">
+                <HBox
+                    class="top-padding">
+                    <Text text="실적등록"/>
+                    <Button
+                        id="closeDialog"
+                        text="❌"
+                        press=".onClosePerformanceDialog"/>
+                </HBox>
+                <VBox>
+                    <Text text="실적관리"/>
+                </VBox>
+                <VBox>
+                    <Text text="생산공장의 실적을 관리합니다"/>
+                </VBox>
+                <HBox>
+                    <Text text="품명"/>
+                    <Text text="슈퍼 캐패시터" class="left-margin"/>
+                    <Text text="규격" class="left-margin"/>
+                    <Text text="-" class="left-margin"/>
+                    <Text text="공정명" class="left-margin"/>
+                    <Text text="시험" class="left-margin"/>
+                </HBox>
+                <HBox>
+                    <Text text="BMS" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin" width="60%"/>
+                    <Text text="센싱선" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin" width="60%"/>
+                    <Text text="캐패시터 보드" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin" width="60%"/>
+                </HBox>
+                <HBox>
+                    <Text text="센서" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin" width="60%"/>
+                    <Text text="색상/길이" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin" width="60%"/>
+                    <Text text="전선" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin" width="60%"/>
+                </HBox>
+                <HBox>
+                    <Text text="스티커" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin" width="60%"/>
+                    <Text text="자재1" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin" width="60%"/>
+                    <Text text="자재2" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin" width="60%"/>
+                </HBox>
+                <HBox>
+                    <Text text="자재3" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin"/>
+                    <Text text="자재4" class="left-margin bottom-margin"/>
+                    <Input class="left-margin bottom-margin"/>
+                </HBox>
+                    <Button
+                        text="닫기"
+                        press=".onClosePerformanceDialog"/>
+            </VBox>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

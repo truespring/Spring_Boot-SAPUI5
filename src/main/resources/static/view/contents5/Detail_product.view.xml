@@ -1,0 +1,120 @@
+<mvc:View
+    controllerName="OpenUI5.controller.contents5.Detail_product"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Text text="생산관리계획" class="title-font-style page-title"/>
+    <Panel accessibleRole="Region">
+        <!-- <ObjectHeader
+            responsive="true"
+            fullScreenOptimized="true"
+            number="{
+                parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+                type: 'sap.ui.model.type.Currency',
+                formatOptions: {
+                    showMeasure: false
+                }
+            }"
+            numberUnit="{view>/currency}"
+            intro="{invoice>ShipperName}"
+            title="{invoice>ProductName}">
+            <attributes>
+                <ObjectAttribute title="{i18n>quantityTitle}" text="{invoice>Quantity}"></ObjectAttribute>
+                <ObjectAttribute title="{i18n>dateTitle}" text="{
+                    path: 'invoice>ShippedDate',
+                    formatOptions: {
+                        style: 'long',
+                        source: {
+                            pattern: 'yyyy-MM-ddTHH:mm:ss'
+                        }
+                    }
+                }"/>
+            </attributes>
+        </ObjectHeader> -->
+        <HBox class="HBox-rows">
+            <Text text="{i18n>columnOrder}" class="sapUiSmallMarginEnd rows-width"/>
+            <Text text="{invoice>OrderNo}"/>
+        </HBox>
+        <HBox class="HBox-rows">
+            <Text text="{i18n>columnSupplier}" class="sapUiSmallMarginEnd rows-width"/>
+            <Text text="{invoice>Supplier}"/>
+        </HBox>
+        <HBox class="HBox-rows">
+            <Text text="{i18n>columnDeadline}" class="sapUiSmallMarginEnd rows-width"/>
+            <Text text="{invoice>Deadline}"/>
+        </HBox>
+        <HBox class="HBox-rows">
+            <Text text="{i18n>columnName}" class="sapUiSmallMarginEnd rows-width"/>
+            <Text text="{invoice>Name}"/>
+        </HBox>
+        <HBox class="HBox-rows">
+            <Text text="{i18n>columnSize}" class="sapUiSmallMarginEnd rows-width"/>
+            <Text text="{invoice>Size}"/>
+        </HBox>
+        <HBox class="HBox-rows">
+            <Text text="{i18n>columnQuantity}" class="sapUiSmallMarginEnd rows-width"/>
+            <Text text="{invoice>Quantity}"/>
+        </HBox>
+        <HBox class="HBox-rows">
+        <!-- 생산 수량 -->
+            <Text text="{i18n>quantityProduction}" class="sapUiSmallMarginEnd rows-width"/>
+            <Input type="Number" value="100" placeholder="생산수량" width="30em"/>
+        </HBox>
+        <HBox class="HBox-rows">
+        <!-- 계획 기간 -->
+            <Text text="{i18n>planningPeriod}" class="sapUiSmallMarginEnd rows-width"/>
+            <Input type="Date"/>
+            <Text text="~"/>
+            <Input type="Date"/>
+        </HBox>
+        <HBox class="HBox-rows">
+        <!-- 원자재 -->
+            <Text text="{i18n>columnResource}" class="sapUiSmallMarginEnd rows-width"/>
+            <l:VerticalLayout
+                class=""
+                width="100%">
+                <ActionSelect
+                    id="select"
+                    items="{
+                        path: '/Resource',
+                        sorter: { path: 'Name' }
+                    }">
+                    <items>
+                        <core:Item key="{Name}" text="{Name}" />
+                    </items>
+                </ActionSelect>
+            </l:VerticalLayout>
+        </HBox>
+        <HBox class="HBox-rows">
+        <!-- 소요량 -->
+            <Text text="{i18n>columnAmount}" class="sapUiSmallMarginEnd rows-width"/>
+            <Input type="Number" value="0" placeholder="소요량" width="30em"/>
+        </HBox>
+        <HBox class="HBox-rows">
+        <!-- 외주 여부 -->
+            <Text text="{i18n>outsorucing}" class="sapUiSmallMarginEnd rows-width"/>
+            <l:VerticalLayout
+                class=""
+                width="100%">
+                <ActionSelect
+                    id="select_2"
+                    items="{
+                        path: '/Outsourcing',
+                        sorter: { path: 'Name' }
+                    }">
+                    <items>
+                        <core:Item key="{Name}" text="{Name}" />
+                    </items>
+                </ActionSelect>
+            </l:VerticalLayout>
+        </HBox>
+        <Button
+            text="저장"
+            press=".onNavSave"/>
+        <Button
+            text="목록"
+            press=".onNavBack"/>
+    </Panel>
+</mvc:View>

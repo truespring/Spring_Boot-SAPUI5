@@ -1,0 +1,352 @@
+{
+	"Invoices": [
+		{
+			"ProductName": "Pineapple",
+			"Quantity": 21,
+			"ExtendedPrice": 87.2000,
+			"ShipperName": "Fun Inc.",
+			"ShippedDate": "2015-04-01T00:00:00",
+			"Status": "A"
+		},
+		{
+			"ProductName": "Milk",
+			"Quantity": 4,
+			"ExtendedPrice": 9.99999,
+			"ShipperName": "ACME",
+			"ShippedDate": "2015-02-18T00:00:00",
+			"Status": "B"
+		},
+		{
+			"ProductName": "Canned Beans",
+			"Quantity": 3,
+			"ExtendedPrice": 6.85000,
+			"ShipperName": "ACME",
+			"ShippedDate": "2015-03-02T00:00:00",
+			"Status": "B"
+		},
+		{
+			"ProductName": "Salad",
+			"Quantity": 2,
+			"ExtendedPrice": 8.8000,
+			"ShipperName": "ACME",
+			"ShippedDate": "2015-04-12T00:00:00",
+			"Status": "C"
+		},
+		{
+			"ProductName": "Bread",
+			"Quantity": 1,
+			"ExtendedPrice": 2.71212,
+			"ShipperName": "Fun Inc.",
+			"ShippedDate": "2015-01-27T00:00:00",
+			"Status": "A"
+		}
+	],
+	"Product_product": [
+		{
+			"Number": 1,
+			"OrderNo": "JBC-200629-01-0002",
+			"Supplier": "(주)벡셀",
+			"Name": "개패시터",
+			"Size": "-",
+			"Quantity": 100,
+			"Deadline": "2020-06-26",
+			"Resource": "BMS",
+			"Amount": 0
+		},
+		{
+			"Number": 2,
+			"OrderNo": "JBC-200629-01-0001",
+			"Supplier": "(주)벡셀",
+			"Name": "BAT",
+			"Size": "-",
+			"Quantity": 100,
+			"Deadline": "2020-06-26",
+			"Resource": "BMS",
+			"Amount": 0
+		}
+	],
+	"Monthly": [
+		{
+			"Name": "E6 BAT",
+			"Size": "-",
+			"Division": "계획실적(%)",
+			"One": ".",
+			"Two": ".",
+			"Three": ".",
+			"Four": ".",
+			"Five": ".",
+			"Six": "100",
+			"Seven": ".",
+			"Eight": ".",
+			"Nine": ".",
+			"Ten": ".",
+			"Eleven": ".",
+			"Tweleve": ".",
+			"Total": "100"
+		},
+		{
+			"Name": "슈퍼 캐패시터",
+			"Size": "-",
+			"Division": "계획실적(%)",
+			"One": ".",
+			"Two": ".",
+			"Three": ".",
+			"Four": ".",
+			"Five": ".",
+			"Six": "250",
+			"Seven": ".",
+			"Eight": ".",
+			"Nine": ".",
+			"Ten": ".",
+			"Eleven": ".",
+			"Tweleve": ".",
+			"Total": "350"
+		}
+	],
+	"Process_product": [
+		{
+			"Number": 1,
+			"OrderNo": "JBC-200629-01-0002",
+			"Supplier": "(주)벡셀",
+			"Name": "슈퍼 개패시터",
+			"Size": "-",
+			"Quantity": 100,
+			"Deadline": "2020-06-26",
+			"Resource": 2,
+			"Amount": 0
+		},
+		{
+			"Number": 2,
+			"OrderNo": "WSK-200629-01-0001",
+			"Supplier": "슈퍼 쏘코",
+			"Name": "울트라 캐패시터",
+			"Size": "-",
+			"Quantity": 200,
+			"Deadline": "2020-05-15",
+			"Resource": 2,
+			"Amount": 0
+		},
+		{
+			"Number": 2,
+			"OrderNo": "WSK-200629-02-0001",
+			"Supplier": "슈퍼 쏘코",
+			"Name": "슈퍼 캐패시터",
+			"Size": "-",
+			"Quantity": 150,
+			"Deadline": "2020-05-01",
+			"Resource": 1,
+			"Amount": 0
+		}
+	],
+	"Process_plan": [
+		{
+			"Number": 1,
+			"Name": "검사",
+			"Quantity": 200,
+			"start": "",
+			"end": "",
+			"lead": 4,
+			"worker": "김재헌"
+		},
+		{
+			"Number": 2,
+			"Name": "스팟",
+			"Quantity": 200,
+			"start": "",
+			"end": "",
+			"lead": 11,
+			"worker": "김재헌"
+		},
+		{
+			"Number": 3,
+			"Name": "센싱",
+			"Quantity": 200,
+			"start": "",
+			"end": "",
+			"lead": 18,
+			"worker": "박선규"
+		},
+		{
+			"Number": 4,
+			"Name": "조립",
+			"Quantity": 200,
+			"start": "",
+			"end": "",
+			"lead": 17,
+			"worker": "박선규"
+		},
+		{
+			"Number": 5,
+			"Name": "시험",
+			"Quantity": 200,
+			"start": "",
+			"end": "",
+			"lead": 4,
+			"worker": "김재헌"
+		}
+	],
+	"Process_sel": [
+		{
+			"Number": 1,
+			"Name": "검사"
+		},
+		{
+			"Number": 2,
+			"Name": "센싱"
+		},
+		{
+			"Number": 3,
+			"Name": "스팟"
+		},
+		{
+			"Number": 4,
+			"Name": "조립"
+		},
+		{
+			"Number": 5,
+			"Name": "납품"
+		},
+		{
+			"Number": 6,
+			"Name": "시험"
+		},
+		{
+			"Number": 7,
+			"Name": "출하"
+		}
+	],
+	"Final_process_check": [
+		{
+			"Number": 1,
+			"Name": "검사"
+		},
+		{
+			"Number": 2,
+			"Name": "스팟.스팟기"
+		},
+		{
+			"Number": 3,
+			"Name": "센싱"
+		},
+		{
+			"Number": 4,
+			"Name": "조립"
+		},
+		{
+			"Number": 5,
+			"Name": "시험"
+		}
+	],
+	"Performance_Management": [
+		{
+			"Number": 1,
+			"OrderNo": "WSK-200629-02-0001",
+			"Supplier": "슈퍼 쏘코",
+			"Name": "슈퍼 캐패시터",
+			"Size": "-",
+			"Process": "출하",
+			"Mechine": "",
+			"worker": "김재헌"
+		},
+		{
+			"Number": 2,
+			"OrderNo": "JBC-200629-01-0001",
+			"Supplier": "(주)벡셀",
+			"Name": "슈퍼 캐패시터",
+			"Size": "-",
+			"Process": "시험",
+			"Mechine": "",
+			"worker": "김재헌"
+		},
+		{
+			"Number": 3,
+			"OrderNo": "JBC-200629-01-0002",
+			"Supplier": "(주)벡셀",
+			"Name": "슈퍼 캐패시터",
+			"Size": "-",
+			"Process": "조립",
+			"Mechine": "",
+			"worker": "김재헌"
+		},
+		{
+			"Number": 4,
+			"OrderNo": "JBC-200629-01-0002",
+			"Supplier": "(주)벡셀",
+			"Name": "슈퍼 캐패시터",
+			"Size": "-",
+			"Process": "센싱",
+			"Mechine": "",
+			"worker": "김재헌"
+		},
+		{
+			"Number": 5,
+			"OrderNo": "JBC-200629-01-0002",
+			"Supplier": "(주)벡셀",
+			"Name": "슈퍼 캐패시터",
+			"Size": "-",
+			"Process": "스팟- [스팟기]",
+			"Mechine": "스팟기",
+			"worker": "김재헌"
+		},
+		{
+			"Number": 6,
+			"OrderNo": "JBC-200629-01-0002",
+			"Supplier": "(주)벡셀",
+			"Name": "슈퍼 캐패시터",
+			"Size": "-",
+			"Process": "검사",
+			"Mechine": "",
+			"worker": "박선규"
+		},
+		{
+			"Number": 7,
+			"OrderNo": "WSK-200629-01-0001",
+			"Supplier": "슈퍼 쏘코",
+			"Name": "울트라 캐패시터",
+			"Size": "-",
+			"Process": "시험",
+			"Mechine": "",
+			"worker": "김재헌"
+		},
+		{
+			"Number": 8,
+			"OrderNo": "WSK-200629-01-0001",
+			"Supplier": "슈퍼 쏘코",
+			"Name": "울트라 캐패시터",
+			"Size": "-",
+			"Process": "조립",
+			"Mechine": "",
+			"worker": "박선규"
+		},
+		{
+			"Number": 9,
+			"OrderNo": "WSK-200629-01-0001",
+			"Supplier": "슈퍼 쏘코",
+			"Name": "울트라 캐패시터",
+			"Size": "-",
+			"Process": "센싱",
+			"Mechine": "",
+			"worker": "박선규"
+		},
+		{
+			"Number": 10,
+			"OrderNo": "WSK-200629-01-0001",
+			"Supplier": "슈퍼 쏘코",
+			"Name": "울트라 캐패시터",
+			"Size": "-",
+			"Process": "스팟- [스팟기]",
+			"Mechine": "스팟기",
+			"worker": "김재헌"
+		}
+	],
+	"Mechine_Maintenance": [
+		{
+			"Number": 1,
+			"Day": "2020-07-27",
+			"MechineDivide": "점검",
+			"MechineName": "스팟기",
+			"Provision": "점검",
+			"Worker": "김재현"
+		}
+	]
+}
