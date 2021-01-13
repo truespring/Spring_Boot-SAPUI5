@@ -1,6 +1,7 @@
 sap.ui.define([
-	"OpenUI5/controller/common/BaseController"
-], function(BaseController) {
+	"OpenUI5/controller/common/BaseController",
+	"sap/ui/model/json/JSONModel"
+], function(BaseController, JSONModel) {
     "use strict";
         
     return BaseController.extend("OpenUI5.controller.common.BaseController",
@@ -19,12 +20,14 @@ sap.ui.define([
             //console.log(JSON.stringify(oModel, null, 2));
             var oData = oModel.getProperty("/");
             console.log("check : " + typeof oData)
-            console.log("check : " + oData.address)
+            console.log( oData)
+            var oData2 = new JSONModel(oData);
+            console.log("oMdodel2 : " + oData2)
             //console.log("oData callbackFunction >>>> "+JSON.stringify(oData, null, 2));
             //oTabled의 아이디 (idTable)가져와서 변수에 넣는다.
             var oTable = this.byId("idTable");
             //oTable 변수에 setModel 한다.
-            oTable.setModel(new JSONModel(oData));
+            oTable.setModel(oData2);
             //oTable.setVisibleRowCount(oData.length);
             
             //callback() 끝나면 callbackFunctionAfter()를 호출한다.
