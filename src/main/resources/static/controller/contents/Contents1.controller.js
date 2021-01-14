@@ -10,28 +10,7 @@ sap.ui.define([
         {
         	window.contents1 = this;
             
-        	this.localApi();
-        },
-        /*
-         *  table list 데이터 가져오는 callback() 함수
-         */
-        callbackFunction : function(oModel)
-        {
-            //console.log(JSON.stringify(oModel, null, 2));
-            var oData = oModel.getProperty("/");
-            console.log("check : " + typeof oData)
-            console.log( oData)
-            var oData2 = new JSONModel(oData);
-            console.log("oMdodel2 : " + oData2)
-            //console.log("oData callbackFunction >>>> "+JSON.stringify(oData, null, 2));
-            //oTabled의 아이디 (idTable)가져와서 변수에 넣는다.
-            var oTable = this.byId("idTable");
-            //oTable 변수에 setModel 한다.
-            oTable.setModel(oData2);
-            //oTable.setVisibleRowCount(oData.length);
-            
-            //callback() 끝나면 callbackFunctionAfter()를 호출한다.
-//            this.callbackFunctionAfter();
+//        	this.localApi();
         },
         callbackFunctionAfter : function(){
         	// 차트 데이터를 가져오기 위해 charMeasureNameApi() 호출한다.
@@ -109,6 +88,34 @@ sap.ui.define([
             };
             
             this.callAjax(oParam);
+        },
+        /*
+         *  table list 데이터 가져오는 callback() 함수
+         */
+        callbackFunction : function(oModel)
+        {
+            //console.log(JSON.stringify(oModel, null, 2));
+            var oData = oModel.getProperty("/");
+            console.log(oData)
+            console.log(this.getModel("board"))
+            //console.log("oData callbackFunction >>>> "+JSON.stringify(oData, null, 2));
+            //oTabled의 아이디 (idTable)가져와서 변수에 넣는다.
+            var oTable = this.byId("idTable");
+            //oTable 변수에 setModel 한다.
+            var oModel2 = new JSONModel(oData)
+            oTable.setModel(this.getModel("board"));
+            //oTable.setVisibleRowCount(oData.length);
+            
+            //callback() 끝나면 callbackFunctionAfter()를 호출한다.
+//            this.callbackFunctionAfter();
+        },
+        onPress: function (oEvent) {
+            var oItem = oEvent.getSource();
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            console.log(window.encodeURIComponent(oItem.getBindingContext("board").getPath().substr(1)))
+            oRouter.navTo("detail", {
+                invoicePath: window.encodeURIComponent(oItem.getBindingContext("board").getPath().substr(1))
+            });
         },
         
 //        callPublicApi : function()

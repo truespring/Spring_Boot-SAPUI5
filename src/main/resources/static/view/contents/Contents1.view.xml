@@ -14,7 +14,7 @@
 			class="sapUiResponsiveMargin"
 			width="auto"
 			items="{
-				path : '/'
+				path : 'board>/'
 			}">
 			<columns>
 				<Column>
@@ -25,10 +25,12 @@
 				</Column>
 			</columns>
 			<items>
-				<ColumnListItem>
+				<ColumnListItem
+					type="Navigation"
+					press=".onPress">
 					<cells>
-						<Text text="{board_no}"/>
-						<Text text="{board_title}"/>
+						<Text text="{board>board_no}"/>
+						<Text text="{board>board_title}"/>
 					</cells>
 				</ColumnListItem>
 			</items>

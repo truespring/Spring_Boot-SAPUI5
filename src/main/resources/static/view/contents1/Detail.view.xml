@@ -1,0 +1,34 @@
+<mvc:View
+	controllerName="OpenUI5.controller.contents1.Detail"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:wt="sap.ui.demo.walkthrough.control">
+    <Page
+        title=""
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+        <Table>
+                <columns
+                    class="HBox-rows">
+                    <Column>
+                        <Text text="1"/>
+                    </Column>
+                    <Column>
+                        <Text text="2"/>
+                    </Column>
+                    <Column>
+                        <Text text="3"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{board>board_no}"/>
+                            <Text text="{board>board_title}"/>
+                            <Text text="a111"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+    </Page>
+</mvc:View>

@@ -43,6 +43,10 @@
 			  "type": "sap.ui.model.json.JSONModel",
 			  "uri": "Invoices.json"
 			},
+			"board": {
+			  "type": "sap.ui.model.json.JSONModel",
+			  "uri": "/test/index3"
+			},
 			"chartList": {
 				"type": "sap.ui.model.json.JSONModel",
 				"uri": "mockdata/ChartContainerData.json"
@@ -67,6 +71,7 @@
 					   { "name": "contents8",       "pattern": "contents8",         "target": "contents8"},
 					   { "name": "contents9",       "pattern": "contents9",         "target": "contents9"},
 					   { "name": "contents10",       "pattern": "contents10",		"target": "contents10"},
+					   { "name": "detail",			"pattern": "detail/{invoicePath}","target": "detail" },
 					   { "name": "detail_product",	"pattern": "detail_product/{invoicePath}","target": "detail_product" },
 					   { "name": "detail_process",	"pattern": "detail_process/{invoicePath}","target": "detail_process" },
 					   { "name": "detail_history",	"pattern": "detail_history/{invoicePath}","target": "detail_history" }
@@ -131,6 +136,12 @@
                     "viewName": "Contents10",
                     "viewLevel": 1,
                     "viewId": "contents10"
+				},
+				"detail": {
+					"viewPath": "OpenUI5.view.contents1",
+					"viewName": "Detail",
+					"viewLevel": 1,
+					"viewId": "detail"
 				},
 				"detail_product": {
 					"viewPath": "OpenUI5.view.contents5",

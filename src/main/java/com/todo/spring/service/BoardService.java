@@ -23,12 +23,6 @@ public class BoardService {
 	@Transactional
 	public List<Board> getBoardList() {
 		List<Board> boards = boardRepository.findAll();
-		for(int i = 0; i < boards.size(); i++) {
-			System.out.println("no : " + boards.get(i).getBoard_no());
-			System.out.println("title : " + boards.get(i).getBoard_title());
-			System.out.println("contents : " + boards.get(i).getContents());
-			System.out.println("writer_name : " + boards.get(i).getWriter_name());
-		}
 		
 		return boards;
 	}
