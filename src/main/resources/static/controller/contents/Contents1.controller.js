@@ -9,8 +9,8 @@ sap.ui.define([
     	onInit : function ()
         {
         	window.contents1 = this;
-            
-//        	this.localApi();
+            var Row = null;
+        	this.localApi();
         },
         callbackFunctionAfter : function(){
         	// 차트 데이터를 가져오기 위해 charMeasureNameApi() 호출한다.
@@ -81,7 +81,7 @@ sap.ui.define([
         localApi : function()
         {
             var oParam = {
-                url     : "/test/index3",
+                url     : "/test/index",
                 data	: "",
                 callback: "callbackFunction",
                 error   : "errorCallbackFunction"
@@ -92,30 +92,59 @@ sap.ui.define([
         /*
          *  table list 데이터 가져오는 callback() 함수
          */
+//        callbackFunction : function(oModel)
+//        {
+//            //console.log(JSON.stringify(oModel, null, 2));
+//            var oData = oModel.getProperty("/");
+//            console.log(oData)
+//            //console.log("oData callbackFunction >>>> "+JSON.stringify(oData, null, 2));
+//            //oTabled의 아이디 (idTable)가져와서 변수에 넣는다.
+//            var oTable = this.byId("idTable");
+//            //oTable 변수에 setModel 한다.
+//            var oModel = new JSONModel(oData)
+//            console.log(oModel)
+//            this.setModel(oModel, "oModel2")
+//            console.log(this.getModel("oModel2"))
+//            oTable.setModel(this.getModel("oModel2"));
+//
+//            //oTable.setVisibleRowCount(oData.length);
+//            
+//            //callback() 끝나면 callbackFunctionAfter()를 호출한다.
+////            this.callbackFunctionAfter();
+//        },
         callbackFunction : function(oModel)
         {
-            //console.log(JSON.stringify(oModel, null, 2));
             var oData = oModel.getProperty("/");
-            console.log(oData)
-            console.log(this.getModel("board"))
-            //console.log("oData callbackFunction >>>> "+JSON.stringify(oData, null, 2));
-            //oTabled의 아이디 (idTable)가져와서 변수에 넣는다.
-            var oTable = this.byId("idTable");
-            //oTable 변수에 setModel 한다.
-            var oModel2 = new JSONModel(oData)
-            oTable.setModel(this.getModel("board"));
-            //oTable.setVisibleRowCount(oData.length);
+            console.log(oData);
+            var oModel2 = new JSONModel(oData);
             
-            //callback() 끝나면 callbackFunctionAfter()를 호출한다.
-//            this.callbackFunctionAfter();
+            var test = sap.ui.getCore().setModel(oModel2);
+               //oTabled의 아이디(invoiceList)가져와서 변수에 넣는다.
+            var oTable = this.byId("idTable");
+               //oTable 변수에 setModel 한다.
+            oTable.setModel(oModel2,"oModel2");
+            
+            
+            //전체에 모델 뿌려주기 
+            //this.setModel(new JSONModel(oData),"omodel2");
+            
+            
+            
         },
+
         onPress: function (oEvent) {
-            var oItem = oEvent.getSource();
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            console.log(window.encodeURIComponent(oItem.getBindingContext("board").getPath().substr(1)))
-            oRouter.navTo("detail", {
-                invoicePath: window.encodeURIComponent(oItem.getBindingContext("board").getPath().substr(1))
-            });
+//            var oItem = oEvent.getSource();
+//            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+//            console.log(window.encodeURIComponent(oItem.getBindingContext("oModel2").getPath().substr(1)))
+//            oRouter.navTo("detail", {
+//                invoicePath: window.encodeURIComponent(oItem.getBindingContext("oModel2").getPath().substr(1))
+//            });
+        	var oRouter = this.getRouter();
+        	var oTable = oEvent.getSource().getBindingContext("oModel2");
+        	var Row = oTable.oModel.getProperty(oTable.sPath);
+        	oRouter.navTo("view2", {
+        		row : JSON.stringify(Row)
+        	})
         },
         
 //        callPublicApi : function()

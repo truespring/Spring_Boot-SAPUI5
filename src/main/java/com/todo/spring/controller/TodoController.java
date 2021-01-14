@@ -18,7 +18,7 @@ public class TodoController {
 		this.boardService = boardService;
 	}
 
-	@RequestMapping("/index3")
+	@RequestMapping("/index")
 	public List<Board> list() {
 		List<Board>list = boardService.getBoardList();
 		System.out.println("index 이동");

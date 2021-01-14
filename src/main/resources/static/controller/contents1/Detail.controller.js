@@ -21,7 +21,7 @@ sap.ui.define([
         _onObjectMatched: function (oEvent) {
             this.getView().bindElement({
                 path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath),
-                model: "board"
+                model: "oModel2"
             });
         },
 
@@ -36,11 +36,6 @@ sap.ui.define([
                 var oRouter = UIComponent.getRouterFor(this);
                 oRouter.navTo("contents1", {}, true);
             }
-        },
-        onNavSave: function () {
-            alert("저장되었습니다.");
-            var oRouter = UIComponent.getRouterFor(this);
-            oRouter.navTo("contents1", {}, true);
         }
     });
 });
