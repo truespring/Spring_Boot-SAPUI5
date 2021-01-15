@@ -4,13 +4,10 @@
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns="sap.m">
 	<Page
-        title=""
+        title="detail_table"
         showNavButton="true"
         navButtonPress=".onNavBack">
-        <Table
-        	items="{
-				path : 'Object>/'
-			}">
+        <Table>
            <columns
                class="HBox-rows">
                <Column>
@@ -26,8 +23,8 @@
            <items>
                <ColumnListItem>
                    <cells>
-                       <Text text="{Object>board_no}"/>
-                       <Text text="{Object>board_title}"/>
+                       <Text text="{b>/board_no}"/>
+                       <Text text="{b>/board_title}"/>
                        <Text text="a111"/>
                    </cells>
                </ColumnListItem>

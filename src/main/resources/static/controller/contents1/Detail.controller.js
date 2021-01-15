@@ -1,5 +1,5 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "OpenUI5.controller.common.BaseController",
     "sap/ui/core/routing/History",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/UIComponent"
@@ -7,23 +7,21 @@ sap.ui.define([
     "use strict";
     return Controller.extend("OpenUI5.controller.common.BaseController", {
         onInit: function () {            
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.getRoute("detail").attachPatternMatched(this._onObjectMatched, this);
-            console.log("디테일 진입")
-//            console.log(this.getModel("board"))
-			// set explored app's demo model on this sample
-//			var oModel = new JSONModel(sap.ui.require.toUrl("sap/ui/demo/mock/contents5_1.json"));
-//			this.getView().setModel(oModel);
+        	var oRouter = this.getRouter();
+    		oRouter.getRoute("detail").attachMatched(this._onRouteMatched, this);
+    		console.log(this)
 
         },
 
         // 디테일 화면
-        _onObjectMatched: function (oEvent) {
-            this.getView().bindElement({
-                path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath),
-                model: "oModel2"
-            });
-        },
+        _onRouteMatched: function(oEvent) {
+			var sObjectId = oEvent.getParameter("arguments").invoicePath;
+			var a = JSON.parse(sObjectId) ;
+			console.log(a)
+			var oModel3 = new JSONModel(a)
+			this.setModel(oModel3, "b")
+			console.log(this.getModel("b"))
+		},
 
         // 뒤로 가기 버튼
         onNavBack: function () {

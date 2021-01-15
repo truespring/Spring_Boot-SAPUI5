@@ -23,9 +23,9 @@
                 <items>
                     <ColumnListItem>
                         <cells>
-                            <Text text="{board>board_no}"/>
-                            <Text text="{board>board_title}"/>
-                            <Text text="a111"/>
+                           <Text text="{b>/board_no}"/>
+	                       <Text text="{b>/board_title}"/>
+	                       <Text text="a111"/>
                         </cells>
                     </ColumnListItem>
                 </items>

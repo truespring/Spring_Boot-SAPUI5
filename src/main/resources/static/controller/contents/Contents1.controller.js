@@ -9,7 +9,6 @@ sap.ui.define([
     	onInit : function ()
         {
         	window.contents1 = this;
-            var Row = null;
         	this.localApi();
         },
         callbackFunctionAfter : function(){
@@ -115,14 +114,14 @@ sap.ui.define([
         callbackFunction : function(oModel)
         {
             var oData = oModel.getProperty("/");
-            console.log(oData);
             var oModel2 = new JSONModel(oData);
-            
-            var test = sap.ui.getCore().setModel(oModel2);
+			console.log(oModel2)
                //oTabled의 아이디(invoiceList)가져와서 변수에 넣는다.
             var oTable = this.byId("idTable");
                //oTable 변수에 setModel 한다.
             oTable.setModel(oModel2,"oModel2");
+            this.setModel(oModel2, "oModel3")
+            console.log(oTable.getModel("oModel2"))
             
             
             //전체에 모델 뿌려주기 
@@ -140,7 +139,7 @@ sap.ui.define([
 //                invoicePath: window.encodeURIComponent(oItem.getBindingContext("oModel2").getPath().substr(1))
 //            });
         	var oRouter = this.getRouter();
-        	var oTable = oEvent.getSource().getBindingContext("oModel2");
+        	var oTable = oEvent.getSource().getBindingContext("oModel3");
         	var Row = oTable.oModel.getProperty(oTable.sPath);
         	oRouter.navTo("view2", {
         		row : JSON.stringify(Row)
