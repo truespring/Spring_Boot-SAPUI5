@@ -29,6 +29,10 @@ sap.ui.define([
             oRouter.navTo("detail_product", {
                 invoicePath: window.encodeURIComponent(oItem.getBindingContext("invoice").getPath().substr(1))
             });
+        },
+        onRegister : function () {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("register_product")
         }
     });
 });

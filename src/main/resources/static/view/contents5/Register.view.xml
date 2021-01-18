@@ -95,5 +95,8 @@
 				</ColumnListItem>
 			</items>
 		</Table>
+		<Button
+			text="등록"
+			press=".onRegister"/>
 	</Panel>
 </mvc:View>

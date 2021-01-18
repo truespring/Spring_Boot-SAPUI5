@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="OpenUI5.controller.contents5.Detail_product"
+    controllerName="OpenUI5.controller.contents5.Register_product"
     xmlns="sap.m"
     xmlns:t="sap.ui.table"
     xmlns:mvc="sap.ui.core.mvc"
@@ -9,39 +9,39 @@
     <Panel accessibleRole="Region">
         <HBox class="HBox-rows">
             <Text text="{i18n>columnOrder}" class="sapUiSmallMarginEnd rows-width"/>
-            <Text text="{invoice>OrderNo}"/>
+            <Input id="order_no"/>
         </HBox>
         <HBox class="HBox-rows">
             <Text text="{i18n>columnSupplier}" class="sapUiSmallMarginEnd rows-width"/>
-            <Text text="{invoice>Supplier}"/>
+            <Input id="customers"/>
         </HBox>
         <HBox class="HBox-rows">
             <Text text="{i18n>columnDeadline}" class="sapUiSmallMarginEnd rows-width"/>
-            <Text text="{invoice>Deadline}"/>
+            <Input id="deadline" type="Date"/>
         </HBox>
         <HBox class="HBox-rows">
             <Text text="{i18n>columnName}" class="sapUiSmallMarginEnd rows-width"/>
-            <Text text="{invoice>Name}"/>
+            <Input id="product_name"/>
         </HBox>
         <HBox class="HBox-rows">
             <Text text="{i18n>columnSize}" class="sapUiSmallMarginEnd rows-width"/>
-            <Text text="{invoice>Size}"/>
+            <Input id="product_size"/>
         </HBox>
         <HBox class="HBox-rows">
             <Text text="{i18n>columnQuantity}" class="sapUiSmallMarginEnd rows-width"/>
-            <Text text="{invoice>Quantity}"/>
+            <Input id="quantity"/>
         </HBox>
         <HBox class="HBox-rows">
         <!-- 생산 수량 -->
             <Text text="{i18n>quantityProduction}" class="sapUiSmallMarginEnd rows-width"/>
-            <Input type="Number" value="100" placeholder="생산수량" width="30em"/>
+            <Input type="Number" width="30em" id="product_quantity"/>
         </HBox>
         <HBox class="HBox-rows">
         <!-- 계획 기간 -->
             <Text text="{i18n>planningPeriod}" class="sapUiSmallMarginEnd rows-width"/>
-            <Input type="Date"/>
+            <Input type="Date" id="start_day"/>
             <Text text="~"/>
-            <Input type="Date"/>
+            <Input type="Date" id="end_day"/>
         </HBox>
         <HBox class="HBox-rows">
         <!-- 원자재 -->
@@ -56,7 +56,7 @@
                         sorter: { path: 'Name' }
                     }">
                     <items>
-                        <core:Item key="{Name}" text="{Name}" />
+                        <core:Item key="{Name}" text="{Name}" id="materials"/>
                     </items>
                 </ActionSelect>
             </l:VerticalLayout>
@@ -64,7 +64,7 @@
         <HBox class="HBox-rows">
         <!-- 소요량 -->
             <Text text="{i18n>columnAmount}" class="sapUiSmallMarginEnd rows-width"/>
-            <Input type="Number" value="0" placeholder="소요량" width="30em"/>
+            <Input type="Number" width="30em" id="requried_quantity"/>
         </HBox>
         <HBox class="HBox-rows">
         <!-- 외주 여부 -->
@@ -79,14 +79,14 @@
                         sorter: { path: 'Name' }
                     }">
                     <items>
-                        <core:Item key="{Name}" text="{Name}" />
+                        <core:Item key="{Name}" text="{Name}" id="outsourcing"/>
                     </items>
                 </ActionSelect>
             </l:VerticalLayout>
         </HBox>
         <Button
             text="저장"
-            press=".onNavSave"/>
+            press=".onNavRegister"/>
         <Button
             text="목록"
             press=".onNavBack"/>

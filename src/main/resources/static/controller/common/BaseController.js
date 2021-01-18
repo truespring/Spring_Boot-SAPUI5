@@ -35,6 +35,10 @@ sap.ui.define([
         {
             return this.getOwnerComponent().getModel("i18n").getResourceBundle();
         },
+        getViewIdValue : function (sName)
+        {
+            return this.getView().byId(sName).getValue();
+        },
         onActive: function() {},
         
         callAjax : function(oParam)

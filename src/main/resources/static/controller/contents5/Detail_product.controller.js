@@ -18,6 +18,7 @@ sap.ui.define([
 
         // 디테일 화면
         _onObjectMatched: function (oEvent) {
+        	console.log("디테일 on")
             this.getView().bindElement({
                 path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath),
                 model: "invoice"
