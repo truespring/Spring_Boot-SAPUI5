@@ -26,6 +26,7 @@ public class TodoController {
 		this.boardService = boardService;
 	}
 
+	// 리스트 뿌리기
 	@RequestMapping("/index")
 	public List<Board> list() {
 		List<Board>list = boardService.getBoardList();
@@ -34,19 +35,23 @@ public class TodoController {
 		return list;
 	}
 	
-	@PostMapping("/update")
-	public @ResponseBody Board update(@RequestBody BoardDTO param) {
-		System.out.println(param.getBoard_title());
-		return boardService.updatePost(param);
-	}
-	
+	// 등록 및 수정
 	@PostMapping("/reg")
-	public @ResponseBody int write(@RequestBody BoardDTO param) {
+	public @ResponseBody Long write(@RequestBody BoardDTO param) {
 		System.out.println(param.getBoard_title());
 		System.out.println(param.getContents());
 		System.out.println(param.getWriter_name());
 		
 		return boardService.savePost(param);
+	}
+	
+	// 삭제
+	@PostMapping("/del")
+	public String delete(@RequestBody BoardDTO param) {
+		Long board_no = param.getBoard_no();
+		System.out.println("board_no : " + board_no);
+		boardService.deletePost(board_no);
+		return "";
 	}
 	
 	@RequestMapping(value="/index2", method = RequestMethod.POST)

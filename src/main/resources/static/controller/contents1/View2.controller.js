@@ -45,7 +45,7 @@ sap.ui.define([
         	console.log("번호 : " + board_no)
         	console.log("제목 : " + board_title)
         	console.log("작가 : " + writer_name)
-        	axios.post('/test/update', {
+        	axios.post('/test/reg', {
         		board_no,
         		board_title,
         		contents,
@@ -54,9 +54,23 @@ sap.ui.define([
         		console.log(res)
         	})
         	
-//        	alert("수정되었습니다.");
-//        	var oRouter = this.getRouter();
-//        	oRouter.navTo("contents1", {}, true);
+        	alert("수정되었습니다.");
+        	var oRouter = this.getRouter();
+        	oRouter.navTo("contents1", {}, true);
+        }, 
+        
+        // 삭제 버튼
+        onDeleteButton : function () {
+        	var board_no = this.getView().byId("board_no").getText();
+        	console.log("번호 : " + board_no)
+        	axios.post('/test/del', {
+        		board_no
+        	}).then(function(res) {
+        		console.log(res)
+        	})
+        	alert("삭제되었습니다.")
+        	var oRouter = this.getRouter();
+        	oRouter.navTo("contents1", {}, true);
         }
     });
 });

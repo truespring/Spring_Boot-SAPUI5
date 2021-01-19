@@ -1,6 +1,6 @@
 package com.todo.spring.domain.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
@@ -18,5 +18,5 @@ public class TimeEntity {
 	
 	@CreatedDate
 	@Column(updatable = false)
-	private LocalDateTime reg_date;
+	private LocalDate reg_date;
 }

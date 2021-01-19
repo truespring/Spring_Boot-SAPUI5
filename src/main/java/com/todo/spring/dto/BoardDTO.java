@@ -16,7 +16,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class BoardDTO {
 
-	private int board_no;
+	private Long board_no;
 	private String board_title;
 	private String contents;
 	private String writer_name;
@@ -33,7 +33,7 @@ public class BoardDTO {
 	}
 	
 	@Builder
-	public BoardDTO(int board_no, String board_title, String contents, String writer_name, LocalDateTime reg_date) {
+	public BoardDTO(Long board_no, String board_title, String contents, String writer_name, LocalDateTime reg_date) {
 		this.board_no = board_no;
 		this.board_title = board_title;
 		this.contents = contents;

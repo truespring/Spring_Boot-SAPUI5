@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class Board extends TimeEntity {
 
 	@Id @GeneratedValue
-	private int board_no;
+	private Long board_no;
 	
 	@Column(length = 256, nullable = false)
 	private String board_title;
@@ -29,7 +29,7 @@ public class Board extends TimeEntity {
 	private String writer_name;
 	
 	@Builder
-	public Board(int board_no, String board_title, String contents, String writer_name) {
+	public Board(Long board_no, String board_title, String contents, String writer_name) {
 		this.board_no = board_no;
 		this.board_title = board_title;
 		this.contents = contents;

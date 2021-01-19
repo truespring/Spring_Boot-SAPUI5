@@ -35,7 +35,13 @@
 					type="Navigation"
 					press=".onPress">
 					<cells>
-						<Text text="{oModel3>board_no}"/>
+					<ObjectNumber
+							number="{
+								parts: [{path: 'oModel3>board_no'}],
+								formatOptions: {
+									showMeasure: true
+								}
+							}"/>
 						<Text text="{oModel3>board_title}"/>
 						<Text text="{oModel3>writer_name}"/>
 					</cells>
