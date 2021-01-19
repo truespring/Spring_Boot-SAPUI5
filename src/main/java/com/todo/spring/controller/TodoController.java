@@ -34,13 +34,19 @@ public class TodoController {
 		return list;
 	}
 	
+	@PostMapping("/update")
+	public @ResponseBody Board update(@RequestBody BoardDTO param) {
+		System.out.println(param.getBoard_title());
+		return boardService.updatePost(param);
+	}
+	
 	@PostMapping("/reg")
-	public @ResponseBody String write(@RequestBody BoardDTO param) {
+	public @ResponseBody int write(@RequestBody BoardDTO param) {
 		System.out.println(param.getBoard_title());
 		System.out.println(param.getContents());
 		System.out.println(param.getWriter_name());
-		boardService.savePost(param);
-		return "";
+		
+		return boardService.savePost(param);
 	}
 	
 	@RequestMapping(value="/index2", method = RequestMethod.POST)

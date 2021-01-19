@@ -36,10 +36,7 @@ sap.ui.define([
             var board_title = this.getViewIdValue("board_title");
             var contents = this.getViewIdValue("contents");
             var writer_name = this.getViewIdValue("writer_name");
-
-            console.log(board_title)
-            console.log(writer_name)
-
+            
              axios.post('/test/reg', {
             	 board_title,
             	 contents,
@@ -49,8 +46,8 @@ sap.ui.define([
              })
             // console.log(oModel)
             // console.log(this.getView().byId("materials").getValue());
-            // var oRouter = UIComponent.getRouterFor(this);
-            // oRouter.navTo("contents5", {}, true);
+             var oRouter = UIComponent.getRouterFor(this);
+             oRouter.navTo("contents1", {}, true);
         }
     });
 });

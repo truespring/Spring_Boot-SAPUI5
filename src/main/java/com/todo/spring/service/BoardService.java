@@ -31,4 +31,8 @@ public class BoardService {
 		return boardRepository.save(param.toEntity()).getBoard_no();
 	}
 
+	@Transactional
+	public Board updatePost(BoardDTO param) {
+		return boardRepository.save(param.toEntity());
+	}
 }

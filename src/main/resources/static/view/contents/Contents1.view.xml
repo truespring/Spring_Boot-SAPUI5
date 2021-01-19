@@ -21,10 +21,13 @@
 			}">
 			<columns>
 				<Column>
-					<Text text="1"/>
+					<Text text="글번호"/>
 				</Column>
 				<Column>
-					<Text text="2"/>
+					<Text text="제목"/>
+				</Column>
+				<Column>
+					<Text text="글쓴이"/>
 				</Column>
 			</columns>
 			<items>
@@ -34,6 +37,7 @@
 					<cells>
 						<Text text="{oModel3>board_no}"/>
 						<Text text="{oModel3>board_title}"/>
+						<Text text="{oModel3>writer_name}"/>
 					</cells>
 				</ColumnListItem>
 			</items>

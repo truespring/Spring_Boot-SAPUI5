@@ -4,31 +4,48 @@
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns="sap.m">
 	<Page
-        title="detail_table"
+        title=""
         showNavButton="true"
         navButtonPress=".onNavBack">
+        <Button
+        	text="저장"
+        	press=".onSaveButton"/>
+        <Button
+        	text="삭제"
+        	press=".onDeleteButton"/>
+        <Button
+        	text="닫기"
+        	press=".onCloseButton"/>
         <Table>
-           <columns
-               class="HBox-rows">
-               <Column>
-                   <Text text="1"/>
-               </Column>
-               <Column>
-                   <Text text="2"/>
-               </Column>
-               <Column>
-                   <Text text="3"/>
-               </Column>
-           </columns>
-           <items>
-               <ColumnListItem>
-                   <cells>
-                       <Text text="{b>/board_no}"/>
-                       <Text text="{b>/board_title}"/>
-                       <Text text="a111"/>
-                   </cells>
-               </ColumnListItem>
-           </items>
-       </Table>
+            <columns
+                class="HBox-rows">
+                <Column>
+                    <Text text="글번호"/>
+                </Column>
+                <Column>
+                    <Text text="제목"/>
+                </Column>
+                <Column>
+                    <Text text="내용"/>
+                </Column>
+                <Column>
+                    <Text text="글슨이"/>
+                </Column>
+                <Column>
+                    <Text text="작성시간"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                       <Text text="{b>/board_no}" id="board_no"/>
+	                   <Input value="{b>/board_title}" id="board_title"/>
+	                   <Input value="{b>/contents}" id="contents"/>
+	                   <Text text="{b>/writer_name}" id="writer_name"/>
+	                   <Text text="{b>/reg_date}" id="reg_date"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
     </Page>
 </mvc:View>

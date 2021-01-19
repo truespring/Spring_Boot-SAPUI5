@@ -34,6 +34,29 @@ sap.ui.define([
                 var oRouter = UIComponent.getRouterFor(this);
                 oRouter.navTo("contents1", {}, true);
             }
+        },
+        
+        // 수정 버튼
+        onSaveButton : function () {
+        	var board_no = this.getView().byId("board_no").getText();
+        	var board_title = this.getView().byId("board_title").getValue();
+        	var contents = this.getView().byId("contents").getValue();
+        	var writer_name = this.getView().byId("writer_name").getText();
+        	console.log("번호 : " + board_no)
+        	console.log("제목 : " + board_title)
+        	console.log("작가 : " + writer_name)
+        	axios.post('/test/update', {
+        		board_no,
+        		board_title,
+        		contents,
+        		writer_name
+        	}).then(function(res){
+        		console.log(res)
+        	})
+        	
+//        	alert("수정되었습니다.");
+//        	var oRouter = this.getRouter();
+//        	oRouter.navTo("contents1", {}, true);
         }
     });
 });
