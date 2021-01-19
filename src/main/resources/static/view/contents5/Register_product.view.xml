@@ -39,9 +39,9 @@
         <HBox class="HBox-rows">
         <!-- 계획 기간 -->
             <Text text="{i18n>planningPeriod}" class="sapUiSmallMarginEnd rows-width"/>
-            <Input type="Date" id="start_day"/>
+            <Input type="Date" id="start_date"/>
             <Text text="~"/>
-            <Input type="Date" id="end_day"/>
+            <Input type="Date" id="end_date"/>
         </HBox>
         <HBox class="HBox-rows">
         <!-- 원자재 -->
@@ -50,13 +50,13 @@
                 class=""
                 width="100%">
                 <ActionSelect
-                    id="select"
+                    id="materials"
                     items="{
                         path: '/Resource',
                         sorter: { path: 'Name' }
                     }">
                     <items>
-                        <core:Item key="{Name}" text="{Name}" id="materials"/>
+                        <core:Item key="{Name}" text="{Name}" id="sel_1"/>
                     </items>
                 </ActionSelect>
             </l:VerticalLayout>
@@ -64,7 +64,7 @@
         <HBox class="HBox-rows">
         <!-- 소요량 -->
             <Text text="{i18n>columnAmount}" class="sapUiSmallMarginEnd rows-width"/>
-            <Input type="Number" width="30em" id="requried_quantity"/>
+            <Input type="Number" width="30em" id="required_quantity"/>
         </HBox>
         <HBox class="HBox-rows">
         <!-- 외주 여부 -->
@@ -73,13 +73,13 @@
                 class=""
                 width="100%">
                 <ActionSelect
-                    id="select_2"
+                    id="outsourcing"
                     items="{
                         path: '/Outsourcing',
                         sorter: { path: 'Name' }
                     }">
                     <items>
-                        <core:Item key="{Name}" text="{Name}" id="outsourcing"/>
+                        <core:Item key="{Name}" text="{Name}" id="sel_2"/>
                     </items>
                 </ActionSelect>
             </l:VerticalLayout>

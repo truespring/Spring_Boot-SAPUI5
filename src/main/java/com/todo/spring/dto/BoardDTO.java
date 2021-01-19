@@ -1,5 +1,7 @@
 package com.todo.spring.dto;
 
+import java.time.LocalDateTime;
+
 import com.todo.spring.domain.entity.Board;
 
 import lombok.Builder;
@@ -18,6 +20,7 @@ public class BoardDTO {
 	private String board_title;
 	private String contents;
 	private String writer_name;
+	private LocalDateTime reg_date;
 	
 	public Board toEntity() {
 		Board build = Board.builder()
@@ -30,11 +33,12 @@ public class BoardDTO {
 	}
 	
 	@Builder
-	public BoardDTO(int board_no, String board_title, String contents, String writer_name) {
+	public BoardDTO(int board_no, String board_title, String contents, String writer_name, LocalDateTime reg_date) {
 		this.board_no = board_no;
 		this.board_title = board_title;
 		this.contents = contents;
 		this.writer_name = writer_name;
+		this.reg_date = reg_date;
 	}
 	
 }

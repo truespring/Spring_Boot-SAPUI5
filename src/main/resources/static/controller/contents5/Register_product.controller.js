@@ -75,20 +75,32 @@ sap.ui.define([
 //            oController.select_2 = this.getView().byId("select_2").getSelectedKey();
 
             // 각 컬럼에 해당하는 데이터 변수에 담기
-            var customers = this.getViewIdValue("customers");
             var order_no = this.getViewIdValue("order_no");
+            console.log(order_no)
+            var customers = this.getViewIdValue("customers");
+            console.log(typeof customers)
             var deadline = this.getViewIdValue("deadline");
+            console.log(deadline)
             var product_name = this.getViewIdValue("product_name");
+            console.log(product_name)
             var product_size = this.getViewIdValue("product_size");
+            console.log(product_size)
             var quantity = this.getViewIdValue("quantity");
+            console.log(quantity)
             var product_quantity = this.getViewIdValue("product_quantity");
-            var start_day = this.getViewIdValue("start_day");
-            var end_day = this.getViewIdValue("end_day");
-            var select = this.getView().byId("select").getSelectedKey();
-            var requried_quantity = this.getViewIdValue("requried_quantity");
-            var select_2 = this.getView().byId("select_2").getSelectedKey();
-            // console.log(oController)
-            if(oController.select == "선택") {
+            console.log(product_quantity)
+            var start_date = this.getViewIdValue("start_date");
+            console.log(start_date)
+            var end_date = this.getViewIdValue("end_date");
+            console.log(end_date)
+            var materials = this.getView().byId("materials").getSelectedKey();
+            console.log(typeof materials)
+            var required_quantity = this.getViewIdValue("required_quantity");
+            console.log(required_quantity)
+            var outsourcing = this.getView().byId("outsourcing").getSelectedKey();
+            console.log(outsourcing)
+
+            if(materials == "선택") {
                 alert("원자재를 선택해주세요.");
                 return false;
             }
@@ -97,15 +109,9 @@ sap.ui.define([
 
             axios.post('/test/index2', {
             	customers, order_no, deadline, product_name, product_size, quantity, 
-            	product_quantity, start_day, end_day, select, requried_quantity, select_2
+            	product_quantity, start_date, end_date, materials, required_quantity, outsourcing
             }).then(function(res){
             	console.log(res)
-                if(res.data == 1) {
-                    alert("등록되었습니다.")
-                } else if(res.data == 2) {
-                    alert("등록에 실패했습니다.")
-                    return false;
-                }
             })
             // console.log(oModel)
             // console.log(this.getView().byId("materials").getValue());

@@ -1,0 +1,29 @@
+<mvc:View
+    controllerName="OpenUI5.controller.contents1.Register_board"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Text text="게시판 등록" class="title-font-style page-title"/>
+    <Panel accessibleRole="Region">
+        <HBox class="HBox-rows">
+            <Text text="글 제목" class="sapUiSmallMarginEnd rows-width"/>
+            <Input id="board_title"/>
+        </HBox>
+        <HBox class="HBox-rows">
+            <Text text="내용" class="sapUiSmallMarginEnd rows-width"/>
+            <Input id="contents"/>
+        </HBox>
+        <HBox class="HBox-rows">
+            <Text text="작성자" class="sapUiSmallMarginEnd rows-width"/>
+            <Input id="writer_name"/>
+        </HBox>
+        <Button
+            text="저장"
+            press=".onNavRegister"/>
+        <Button
+            text="목록"
+            press=".onNavBack"/>
+    </Panel>
+</mvc:View>

@@ -7,15 +7,13 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.todo.spring.domain.entity.Board;
-import com.todo.spring.domain.entity.ProductManagement;
 import com.todo.spring.domain.repository.BoardRepository;
-import com.todo.spring.domain.repository.ProductRepository;
+import com.todo.spring.dto.BoardDTO;
 
 @Service
 public class BoardService {
 
 	private BoardRepository boardRepository;
-	private ProductRepository productRepository;
 	
 	public BoardService(BoardRepository boardRepository) {
 		this.boardRepository = boardRepository;
@@ -28,8 +26,9 @@ public class BoardService {
 		return boards;
 	}
 	
-	public ProductManagement save(ProductManagement param) {
-		productRepository.save(param);
-		return param;
+	@Transactional
+	public int savePost(BoardDTO param) {
+		return boardRepository.save(param.toEntity()).getBoard_no();
 	}
+
 }

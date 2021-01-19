@@ -9,6 +9,9 @@
 	controllerName="OpenUI5.controller.contents.Contents1">
 
 	<Text text="제목변경"/>
+		<Button 
+			text="등록"
+			press=".onRegister"/>
 		<Table
 			id="idTable"
 			class="sapUiResponsiveMargin"
