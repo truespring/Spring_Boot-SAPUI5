@@ -1,5 +1,7 @@
 package com.todo.spring.dto;
 
+import java.time.LocalDate;
+
 import com.todo.spring.domain.entity.ProductManagement;
 
 import lombok.Builder;
@@ -13,6 +15,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class ProductSaveRequestDTO {
+	private Long product_no;
 	private String order_no;
 	private String customers;
 	private String product_name;
@@ -22,14 +25,15 @@ public class ProductSaveRequestDTO {
 	private int required_quantity;
 	private int product_quantity;
 	private String outsourcing;
-	private String deadline;
-	private String start_date;
-	private String end_date;
+	private LocalDate deadline;
+	private LocalDate start_date;
+	private LocalDate end_date;
 	
 	@Builder
-	public ProductSaveRequestDTO(String order_no, String customers, String product_name, int product_size, 
+	public ProductSaveRequestDTO(Long product_no, String order_no, String customers, String product_name, int product_size, 
 			int quantity, String materials, int required_quantity, int product_quantity, String outsourcing,
-			String deadline, String start_date, String end_date) {
+			LocalDate deadline, LocalDate start_date, LocalDate end_date) {
+		this.product_no = product_no;
 		this.order_no = order_no;
 		this.customers = customers;
 		this.product_name = product_name;
@@ -46,6 +50,7 @@ public class ProductSaveRequestDTO {
 	
 	public ProductManagement toEntity() {
 		return ProductManagement.builder()
+				.product_no(product_no)
 				.order_no(order_no)
 				.customers(customers)
 				.product_name(product_name)

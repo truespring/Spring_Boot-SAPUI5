@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.todo.spring.domain.entity.Board;
+import com.todo.spring.domain.entity.ProductManagement;
 import com.todo.spring.dto.BoardDTO;
 import com.todo.spring.dto.ProductSaveRequestDTO;
 import com.todo.spring.service.BoardService;
@@ -22,8 +23,18 @@ public class TodoController {
 	private BoardService boardService;
 	private ProductManagementService productManagementService;
 	
-	public TodoController(BoardService boardService) {
+	public TodoController(BoardService boardService, ProductManagementService productManagementService) {
 		this.boardService = boardService;
+		this.productManagementService = productManagementService;
+	}
+	
+	
+	// 생산관리 리스트
+	@RequestMapping("/productList")
+	public List<ProductManagement> productList() {
+		List<ProductManagement> list = productManagementService.getProductManagementList();
+		System.out.println("생산관리 리스트");
+		return list;
 	}
 
 	// 리스트 뿌리기
@@ -54,6 +65,7 @@ public class TodoController {
 		return "";
 	}
 	
+	// 생산관리 등록
 	@RequestMapping(value="/index2", method = RequestMethod.POST)
 	public @ResponseBody Long save(@RequestBody ProductSaveRequestDTO param) {
 		System.out.println(param.getOrder_no());

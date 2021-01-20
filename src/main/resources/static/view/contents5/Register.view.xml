@@ -17,11 +17,11 @@
 			</Toolbar>
 		</headerToolbar>
 		<Table
-			id="invoiceList"
+			id="idTable"
 			class="sapUiResponsiveMargin"
 			width="auto"
 			items="{
-				path : 'invoice>/Product_product'
+				path : 'oModel3>/'
 			}">
 			<columns>
 				<Column
@@ -78,19 +78,19 @@
 					<cells>
 						<ObjectNumber
 							number="{
-								parts: [{path: 'invoice>Number'}],
+								parts: [{path: 'oModel3>product_no'}],
 								formatOptions: {
 									showMeasure: true
 								}
 							}"/>
-						<Text text="{invoice>OrderNo}"/>
-						<Text text="{invoice>Supplier}"/>
-						<Text text="{invoice>Name}"/>
-						<Text text="{invoice>Size}"/>
-						<ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
-						<Text text="{invoice>Deadline}"/>
-						<Text text="{invoice>Resource}"/>
-						<ObjectNumber number="{invoice>Amount}" emphasized="false"/>
+						<Text text="{oModel3>order_no}"/>
+						<Text text="{}"/>
+						<Text text="{}"/>
+						<Text text="{}"/>
+						<ObjectNumber number="{}" emphasized="false"/>
+						<Text text="{}"/>
+						<Text text="{}"/>
+						<ObjectNumber number="{}" emphasized="false"/>
 					</cells>
 				</ColumnListItem>
 			</items>

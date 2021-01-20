@@ -41,16 +41,16 @@ sap.ui.define([
             quantity.setValue();
             var product_quantity = this.byId("product_quantity");
             product_quantity.setValue();
-            var start_day = this.byId("start_day");
-            start_day.setValue();
-            var end_day = this.byId("end_day");
-            end_day.setValue();
-            var select = this.byId("select");
-            select.setSelectedKey();
-            var requried_quantity = this.byId("requried_quantity");
-            requried_quantity.setValue();
-            var select_2 = this.byId("select_2");
-            select_2.setValue();
+            var start_date = this.byId("start_date");
+            start_date.setValue();
+            var end_date = this.byId("end_date");
+            end_date.setValue();
+            var materials = this.byId("materials");
+            materials.setSelectedKey();
+            var required_quantity = this.byId("required_quantity");
+            required_quantity.setValue();
+            var outsourcing = this.byId("outsourcing");
+            outsourcing.setSelectedKey();
         },
         onNavRegister: function () {
             var oController = new Object();

@@ -16,11 +16,11 @@ sap.ui.define([
 
 		_onRouteMatched: function(oEvent) {
 			var sObjectId = oEvent.getParameter("arguments").row;
-			var a = JSON.parse(sObjectId) ;
-			console.log(a)
-			var oModel3 = new JSONModel(a)
-			this.setModel(oModel3, "b")
-			console.log(this.getModel("b"))
+			var a = JSON.parse(sObjectId);
+			console.log(a);
+			var oModel3 = new JSONModel(a);
+			this.setModel(oModel3, "b");
+			console.log(this.getModel("b"));
 		},
 
         // 뒤로 가기 버튼

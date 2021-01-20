@@ -1,28 +1,34 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "OpenUI5/controller/common/BaseController",
     "sap/ui/core/routing/History",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/UIComponent"
 ], function (Controller, History, JSONModel, UIComponent) {
     "use strict";
-    return Controller.extend("sap.ui.deme.walkthrough.controller.Detail_product", {
+    return Controller.extend("OpenUI5.controller.common.BaseControlle", {
         onInit: function () {            
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var oRouter = this.getRouter();
             oRouter.getRoute("detail_product").attachPatternMatched(this._onObjectMatched, this);
             
 			// set explored app's demo model on this sample
-			var oModel = new JSONModel(sap.ui.require.toUrl("sap/ui/demo/mock/contents5_1.json"));
-			this.getView().setModel(oModel);
+//			var oModel = new JSONModel(sap.ui.require.toUrl("sap/ui/demo/mock/contents5_1.json"));
+//			this.getView().setModel(oModel);
 
         },
 
         // 디테일 화면
         _onObjectMatched: function (oEvent) {
         	console.log("디테일 on")
-            this.getView().bindElement({
-                path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath),
-                model: "invoice"
-            });
+//            this.getView().bindElement({
+//                path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath),
+//                model: "invoice"
+//            });
+        	var sObjectId = oEvent.getParameter("arguments").invoicePath;
+        	var a = JSON.parse(sObjectId);
+        	console.log(a);
+        	var oModel3 = new JSONModel(a);
+        	this.setModel(oModel3, "b");
+        	console.log(this.getModel("b"));
         },
 
         // 뒤로 가기 버튼

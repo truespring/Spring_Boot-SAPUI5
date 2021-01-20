@@ -9,7 +9,7 @@
     <Panel accessibleRole="Region">
         <HBox class="HBox-rows">
             <Text text="{i18n>columnOrder}" class="sapUiSmallMarginEnd rows-width"/>
-            <Text text="{invoice>OrderNo}"/>
+            <Text text="{b>/order_no}"/>
         </HBox>
         <HBox class="HBox-rows">
             <Text text="{i18n>columnSupplier}" class="sapUiSmallMarginEnd rows-width"/>

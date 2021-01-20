@@ -24,9 +24,9 @@ public class BoardService {
 	// 게시판 리스트 sel
 	@Transactional
 	public List<Board> getBoardList() {
-		List<Board> boards = boardRepository.findAll();
+		List<Board> boards = boardRepository.findAll(); // 해당 테이블 전부 조회
 		
-		// 리스트 정렬
+		// 객체 정렬
 		Collections.sort(boards,new Comparator<Board>() {
 			public int compare(Board o1, Board o2) {
 				if(o1.getBoard_no() > o2.getBoard_no()) {

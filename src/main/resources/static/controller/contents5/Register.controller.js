@@ -1,13 +1,14 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+	"OpenUI5/controller/common/BaseController",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], function (Controller, Filter, FilterOperator) {
+    "sap/ui/model/FilterOperator",
+    "sap/ui/model/json/JSONModel"
+], function (Controller, Filter, FilterOperator, JSONModel) {
     "use strict";
 
-    return Controller.extend("OpenUI5.controller.Register", {
+    return Controller.extend("OpenUI5.controller.common.BaseController", {
         onInit : function () {
-            
+        	this.localApi();
         },
         onFilterInvoices : function (oEvent) {
 
@@ -23,11 +24,46 @@ sap.ui.define([
             var oBinding = oList.getBinding("items");
             oBinding.filter(aFilter);
         },
+         
+        errorCallbackFunction : function()
+        {
+            console.log("error callback");
+        },
+        
+        localApi : function()
+        {
+            var oParam = {
+                url     : "/test/productList",
+                data	: "",
+                callback: "callbackFunction",
+                error   : "errorCallbackFunction"
+            };
+            
+            this.callAjax(oParam);
+        },
+        
+        callbackFunction : function(oModel)
+        {
+            var oData = oModel.getProperty("/");
+            var oModel2 = new JSONModel(oData);
+			console.log(oModel2)
+               //oTabled의 아이디(invoiceList)가져와서 변수에 넣는다.
+            var oTable = this.byId("idTable");
+               //oTable 변수에 setModel 한다.
+            oTable.setModel(oModel2,"oModel2");
+            this.setModel(oModel2, "oModel3")
+//            console.log(oTable.getModel("oModel2"))
+            
+            
+            //전체에 모델 뿌려주기 
+            //this.setModel(new JSONModel(oData),"omodel2");
+        },
         onPress: function (oEvent) {
-            var oItem = oEvent.getSource();
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var oRouter = this.getRouter();
+            var oTable = oEvent.getSource().getBindingContext("oModel3");
+            var InvoicePath = oTable.oModel.getProperty(oTable.sPath)
             oRouter.navTo("detail_product", {
-                invoicePath: window.encodeURIComponent(oItem.getBindingContext("invoice").getPath().substr(1))
+                invoicePath: JSON.stringify(InvoicePath)
             });
         },
         onRegister : function () {

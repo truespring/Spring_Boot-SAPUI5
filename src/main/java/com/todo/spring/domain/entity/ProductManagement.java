@@ -1,5 +1,7 @@
 package com.todo.spring.domain.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductManagement {
 
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id @GeneratedValue
 	private Long product_no;
 	
 	@Column(length = 256, nullable = false)
@@ -48,18 +50,19 @@ public class ProductManagement {
 	private String outsourcing;
 	
 	@Column(nullable = false)
-	private String deadline;
+	private LocalDate deadline;
 	
 	@Column()
-	private String start_date;
+	private LocalDate start_date;
 	
 	@Column()
-	private String end_date;
+	private LocalDate end_date;
 	
 	@Builder
-	public ProductManagement(String order_no, String customers, String product_name, int product_size, 
+	public ProductManagement(Long product_no, String order_no, String customers, String product_name, int product_size, 
 			int quantity, String materials, int required_quantity, int product_quantity, String outsourcing,
-			String deadline, String start_date, String end_date) {
+			LocalDate deadline, LocalDate start_date, LocalDate end_date) {
+		this.product_no = product_no;
 		this.order_no = order_no;
 		this.customers = customers;
 		this.product_name = product_name;
